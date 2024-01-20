@@ -22,8 +22,7 @@ export default {
   methods: {
     async getData() {
       try {
-        const response = await axios.get('/api/users')
-
+        const response = await axios.get('https://kolpa-api.netlify.app/api/users')
         if (response.data && response.data.users) {
           this.myUsers = response.data.users
         }
@@ -33,8 +32,9 @@ export default {
     },
     async incrementCount(userName) {
       try {
-        const response = await axios.post('api/increment-count', { userName })
-
+        const response = await axios.post('https://kolpa-api.netlify.app/api/increment-count', {
+          userName
+        })
         if (response.data && response.data.success) {
           const updatedUser = response.data.updatedUser
           const userIndex = this.myUsers.findIndex((user) => user.name === updatedUser.name)
