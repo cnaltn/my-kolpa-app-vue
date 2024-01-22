@@ -1,6 +1,6 @@
 import express from 'express'
 import cors from 'cors'
-import server from 'serverless-http'
+import serverless from 'serverless-http'
 import rateLimit from 'express-rate-limit'
 import mongoose from 'mongoose'
 
