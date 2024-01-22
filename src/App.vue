@@ -22,7 +22,7 @@ export default {
   methods: {
     async getData() {
       try {
-        const response = await axios.get('https://kolpakapis.netlify.app/api/users')
+        const response = await axios.get('http://localhost:5173/users')
         if (response.data && response.data.users) {
           this.myUsers = response.data.users
         }
@@ -32,7 +32,7 @@ export default {
     },
     async incrementCount(userName) {
       try {
-        const response = await axios.post('https://kolpakapis.netlify.app/api/increment-count', {
+        const response = await axios.post('http://localhost:5173/increment-count', {
           userName
         })
         if (response.data && response.data.success) {

@@ -104,8 +104,6 @@ app.post('/api/set-zero', async (req, res) => {
   }
 })
 
-// app.listen(port, () => {
-//   console.log(`Example app listening on port ${port}`);
-// });
-
-export const handler = serverless(api)
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
