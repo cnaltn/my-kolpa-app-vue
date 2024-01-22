@@ -22,7 +22,7 @@ export default {
   methods: {
     async getData() {
       try {
-        const response = await axios.get('https://kolpa-api.onrender.com/api/users')
+        const response = await axios.get('http://localhost:3000/api/users')
         if (response.data && response.data.users) {
           this.myUsers = response.data.users
         }
@@ -32,7 +32,7 @@ export default {
     },
     async incrementCount(userName) {
       try {
-        const response = await axios.post('https://kolpa-api.onrender.com/api/increment-count', {
+        const response = await axios.post('http://localhost:3000/api/increment-count', {
           userName
         })
         if (response.data && response.data.success) {
