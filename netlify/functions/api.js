@@ -1,8 +1,8 @@
-const express = require('express')
-const cors = require('cors')
-const serverless = require('serverless-http')
-const rateLimit = require('express-rate-limit')
-const mongoose = require('mongoose')
+import express from 'express'
+import cors from 'cors'
+import server from 'serverless-http'
+import rateLimit from 'express-rate-limit'
+import mongoose from 'mongoose'
 
 const app = express()
 app.use(cors())
