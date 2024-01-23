@@ -22,34 +22,35 @@ export default {
   methods: {
     async getData() {
       try {
-        const response = await axios.get('http://localhost:5173/users')
-        if (response.data && response.data.users) {
-          this.myUsers = response.data.users
-        }
+        const response = await axios.get('/api/hello')
+        console.log(response)
       } catch (error) {
         console.error('Error fetching data:', error)
       }
-    },
-    async incrementCount(userName) {
-      try {
-        const response = await axios.post('http://localhost:5173/increment-count', {
-          userName
-        })
-        if (response.data && response.data.success) {
-          const updatedUser = response.data.updatedUser
-          const userIndex = this.myUsers.findIndex((user) => user.name === updatedUser.name)
-
-          if (userIndex !== -1) {
-            // Update the local data with the updated count value
-            this.myUsers[userIndex].count = updatedUser.count
-          }
-        } else {
-          console.error('Failed to increment count:', response.data.message)
-        }
-      } catch (error) {
-        console.error('Çok fazla istek attınız')
-      }
     }
+    // async incrementCount(userName) {
+    //   try {
+    //     const response = await axios.post(
+    //       'https://super-cow-crown.cyclic.app/api/increment-count',
+    //       {
+    //         userName
+    //       }
+    //     )
+    //     if (response.data && response.data.success) {
+    //       const updatedUser = response.data.updatedUser
+    //       const userIndex = this.myUsers.findIndex((user) => user.name === updatedUser.name)
+
+    //       if (userIndex !== -1) {
+    //         // Update the local data with the updated count value
+    //         this.myUsers[userIndex].count = updatedUser.count
+    //       }
+    //     } else {
+    //       console.error('Failed to increment count:', response.data.message)
+    //     }
+    //   } catch (error) {
+    //     console.error('Çok fazla istek attınız')
+    //   }
+    // }
   },
   mounted() {
     this.getData()
