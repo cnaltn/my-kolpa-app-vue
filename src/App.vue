@@ -22,7 +22,7 @@ export default {
   methods: {
     async getData() {
       try {
-        const response = await axios.get('https://kolpakapis.netlify.app/api/hello')
+        const response = await axios.get('https://kolpakapis.netlify.app/api/users')
         if (response.data && response.data.users) {
           this.myUsers = response.data.users
         }
