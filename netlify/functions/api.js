@@ -7,6 +7,7 @@ import cors from 'cors'
 const api = express()
 const router = Router()
 api.use(cors())
+api.use(express.json())
 
 // Define MongoDB schema
 const userSchema = new mongoose.Schema({

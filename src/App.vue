@@ -30,10 +30,10 @@ export default {
         console.error('Error fetching data:', error)
       }
     },
-    async incrementCount(userName) {
+    async incrementCount(name) {
       try {
         const response = await axios.post('https://kolpakapis.netlify.app/api/increment-count', {
-          userName
+          name
         })
         if (response.data && response.data.success) {
           const updatedUser = response.data.updatedUser
