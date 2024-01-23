@@ -106,6 +106,7 @@ export default {
   background-color: #a3e635;
   border: none;
   border-radius: 4px;
+  align-items: center;
   font-size: 14px;
   font-weight: bold;
   max-width: max-content;
