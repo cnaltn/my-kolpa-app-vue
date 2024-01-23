@@ -59,7 +59,7 @@ api.post('/api/newusers', async (req, res) => {
   }
 })
 
-api.post('/api/increment-count', limiter, async (req, res) => {
+api.post('/api/increment-count', async (req, res) => {
   const { userName } = req.body
 
   try {
