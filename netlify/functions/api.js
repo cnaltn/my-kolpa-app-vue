@@ -2,12 +2,11 @@ import express, { Router } from 'express'
 import serverless from 'serverless-http'
 import mongoose from 'mongoose'
 import rateLimit from 'express-rate-limit'
+import cors from 'cors'
 
 const api = express()
-
 const router = Router()
-
-const PORT = 3000
+api.use(cors())
 
 // Define MongoDB schema
 const userSchema = new mongoose.Schema({
@@ -59,7 +58,7 @@ api.post('/api/newusers', async (req, res) => {
   }
 })
 
-api.post('/api/increment-count', async (req, res) => {
+api.post('/api/increment-count', limiter, async (req, res) => {
   const { userName } = req.body
 
   try {
