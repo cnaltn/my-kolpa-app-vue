@@ -99,6 +99,7 @@ export default {
 .myList {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .button {
