@@ -18,9 +18,7 @@
       </div>
       <div v-else class="myList" v-for="user in myUsers" :key="user.name">
         <p class="userTitle">{{ user.name }} : {{ user.count }}</p>
-        <button class="button" @click="incrementCount(user.name)">
-          {{ buttonLoading ? 'Oy Veriliyor...' : 'Oy Ver' }}
-        </button>
+        <button class="button" @click="incrementCount(user.name)">Oy Ver</button>
       </div>
     </div>
   </div>
@@ -33,8 +31,7 @@ export default {
   data() {
     return {
       myUsers: [],
-      loading: false,
-      buttonLoading: false
+      loading: false
     }
   },
   methods: {
@@ -52,7 +49,6 @@ export default {
     },
     async incrementCount(name) {
       try {
-        this.buttonLoading = true
         const response = await axios.post('https://kolpakapis.netlify.app/api/increment-count', {
           name
         })
@@ -64,7 +60,6 @@ export default {
             // Update the local data with the updated count value
             this.myUsers[userIndex].count = updatedUser.count
           }
-          this.buttonLoading = false
         } else {
           console.error('Failed to increment count:', response.data.message)
         }
