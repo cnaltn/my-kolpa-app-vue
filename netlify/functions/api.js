@@ -59,10 +59,10 @@ api.post('/api/newusers', async (req, res) => {
 })
 
 api.post('/api/increment-count', limiter, async (req, res) => {
-  const { userName } = req.body
+  const { name } = req.body
 
   try {
-    const user = await UserModel.findOne({ name: userName })
+    const user = await UserModel.findOne({ name: name })
 
     if (user) {
       user.count += 1
