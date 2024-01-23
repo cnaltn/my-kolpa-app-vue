@@ -1,6 +1,5 @@
 import express from 'express'
 import cors from 'cors'
-import serverless from 'serverless-http'
 import rateLimit from 'express-rate-limit'
 import mongoose from 'mongoose'
 
@@ -8,7 +7,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-const port = 3000
+const PORT = 3000
 
 // Define MongoDB schema
 const userSchema = new mongoose.Schema({
@@ -104,6 +103,8 @@ app.post('/api/set-zero', async (req, res) => {
   }
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`)
 })
+
+export const handler = app
