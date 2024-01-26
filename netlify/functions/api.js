@@ -103,5 +103,13 @@ api.post('/api/set-zero', async (req, res) => {
     res.status(500).json({ success: false, message: 'Internal Server Error' })
   }
 })
+api.post('/api/set-zero-all', async (req, res) => {
+  try {
+    await UserModel.updateMany({}, { $set: { count: 0 } })
+    res.json({ success: true, message: 'All user counts set to zero' })
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Internal Server Error' })
+  }
+})
 
 export const handler = serverless(api)
