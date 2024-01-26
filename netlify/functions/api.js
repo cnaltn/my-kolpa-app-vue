@@ -98,7 +98,7 @@ api.post('/api/set-zero', async (req, res) => {
   const { name } = req.body
   try {
     await UserModel.updateOne({ name: name }, { $set: { count: 0 } })
-    res.json({ success: true, message: 'All user counts set to zero' })
+    res.json({ success: true, message: 'Count of ' + name + ' succesfully set 0' })
   } catch (error) {
     res.status(500).json({ success: false, message: 'Internal Server Error' })
   }
