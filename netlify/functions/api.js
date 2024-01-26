@@ -95,8 +95,9 @@ api.delete('/api/delete-user', async (req, res) => {
 })
 
 api.post('/api/set-zero', async (req, res) => {
+  const { name } = req.body
   try {
-    await UserModel.updateMany({}, { $set: { count: 0 } })
+    await UserModel.updateOne({ name: name }, { $set: { count: 0 } })
     res.json({ success: true, message: 'All user counts set to zero' })
   } catch (error) {
     res.status(500).json({ success: false, message: 'Internal Server Error' })
