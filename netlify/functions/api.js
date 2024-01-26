@@ -94,6 +94,15 @@ api.delete('/api/delete-user', async (req, res) => {
   }
 })
 
+api.post('/api/set-count', async (req, res) => {
+  const { name, count } = req.body
+  try {
+    await UserModel.updateOne({ name: name }, { $set: { count: count } })
+    res.json({ success: true, message: 'New count of ' + name + ' succesfully set ' + count })
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Internal Server Error' })
+  }
+})
 api.post('/api/set-zero', async (req, res) => {
   const { name } = req.body
   try {
